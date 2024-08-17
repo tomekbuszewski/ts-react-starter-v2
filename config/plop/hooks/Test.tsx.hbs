@@ -1,0 +1,11 @@
+import { renderHook } from "@testing-library/react";
+
+import {{camelCase name}} from "./{{camelCase name}}";
+
+describe("Hooks / {{camelCase name}}", () => {
+    it("should return true", () => {
+        const { result } = renderHook(() => {{camelCase name}}());
+
+        expect(result.current).toBeTruthy();
+    });
+});
