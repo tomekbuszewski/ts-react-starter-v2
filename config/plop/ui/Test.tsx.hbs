@@ -1,0 +1,12 @@
+import { render } from "@testing-library/react";
+
+import {{pascalCase name}} from "./{{pascalCase name}}";
+
+describe("UI / {{dashCase type}} / {{pascalCase name}}", () => {
+    it("should render properly", () => {
+        const TEXT = "Hello";
+        const { getByText } = render(<{{pascalCase name}}>{TEXT}</{{pascalCase name}}>);
+
+        expect(getByText(TEXT)).toBeInTheDocument();
+    });
+});
