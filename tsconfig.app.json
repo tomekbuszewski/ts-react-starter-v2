@@ -22,6 +22,7 @@
 
     /* Paths */
     "paths": {
+      "@pages": ["src/pages/index.ts"],
       "@ui/*": ["src/ui/*/index.ts"],
       "@utils": ["src/utils/index.ts"]
     },

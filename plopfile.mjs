@@ -99,6 +99,31 @@ function plop(/** @type {import('plop').NodePlopAPI} */ plop) {
       },
     ],
   });
+
+  plop.setGenerator("page", {
+    description: "Create a new page",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Page name",
+      },
+    ],
+
+    actions: [
+      {
+        type: "add",
+        path: "./src/pages/{{pascalCase name}}/{{pascalCase name}}.tsx",
+        template: `export default function {{pascalCase name}}() { return <div>Hello from {{pascalCase name}}</div>; }`,
+      },
+      {
+        type: "append",
+        path: "./src/pages/index.ts",
+        template:
+          'export { default as {{pascalCase name}} } from "./{{pascalCase name}}/{{pascalCase name}}";',
+      },
+    ],
+  });
 }
 
 export default plop;
