@@ -11,9 +11,12 @@
     "storybook": "storybook dev -p 6006 --config-dir storybook",
     "build-storybook": "storybook build --config-dir storybook",
     "plop": "plop",
-    "postplop": "prettier --write 'src/**/*.{ts,tsx}'"
+    "postplop": "prettier --write 'src/**/*.{ts,tsx}'; eslint --fix 'src/**/*.{ts,tsx}'",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.51.23",
+    "@tanstack/react-query-devtools": "^5.51.23",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -28,6 +31,7 @@
     "@storybook/react": "^8.2.9",
     "@storybook/react-vite": "^8.2.9",
     "@storybook/test": "^8.2.9",
+    "@tanstack/eslint-plugin-query": "^5.51.15",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@types/react": "^18.3.3",

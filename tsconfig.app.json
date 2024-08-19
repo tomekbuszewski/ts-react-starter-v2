@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "ES2021.String", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -22,7 +22,9 @@
 
     /* Paths */
     "paths": {
+      "@features": ["src/features/index.ts"],
       "@pages": ["src/pages/index.ts"],
+      "@providers": ["src/providers/index.ts"],
       "@ui/*": ["src/ui/*/index.ts"],
       "@utils": ["src/utils/index.ts"]
     },

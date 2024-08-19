@@ -5,6 +5,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import react from "eslint-plugin-react";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -14,6 +15,7 @@ export default tseslint.config(
       js.configs.recommended,
       ...tseslint.configs.recommendedTypeChecked,
       ...tseslint.configs.stylisticTypeChecked,
+      ...pluginQuery.configs["flat/recommended"],
     ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -41,17 +43,13 @@ export default tseslint.config(
         "error",
         {
           groups: [
-            [
-              "^node:.*\\u0000$",
-              "^@?\\w.*\\u0000$",
-              "^[^.].*\\u0000$",
-              "^\\..*\\u0000$",
-            ],
+            ["^@?\\w.*\\u0000$", "^[^.].*\\u0000$", "^\\..*\\u0000$"],
+            ["^react", "^@?\\w"],
             ["^\\u0000"],
-            ["^node:"],
-            ["^@?\\w"],
-            ["^"],
-            ["^\\."],
+            ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+            ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+            ["^.+\\.s?css$"],
+            ["^(@)(/.*|$)"],
           ],
         },
       ],
