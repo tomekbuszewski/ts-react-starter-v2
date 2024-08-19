@@ -34,5 +34,5 @@
     /* Types */
     "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src", "config", "storybook", "mocks"]
+  "include": ["src", "config", "storybook", "mocks", "e2e"]
 }

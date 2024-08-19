@@ -14,7 +14,9 @@
     "build-storybook": "storybook build --config-dir storybook",
     "plop": "plop",
     "postplop": "prettier --write 'src/**/*.{ts,tsx}'; eslint --fix 'src/**/*.{ts,tsx}'",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:e2e": "wait-for-localhost 8080 && playwright test",
+    "test:e2e:mocks": "npm run build:mocks && run-p -r \"preview\" \"test:e2e\""
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.23",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@playwright/test": "^1.46.1",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
@@ -36,11 +39,14 @@
     "@tanstack/eslint-plugin-query": "^5.51.15",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
+    "@types/node": "^22.4.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
     "eslint": "^9.9.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
@@ -50,6 +56,7 @@
     "globals": "^15.9.0",
     "happy-dom": "^14.12.3",
     "msw": "^2.3.5",
+    "npm-run-all": "^4.1.5",
     "plop": "^4.0.1",
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
@@ -59,7 +66,8 @@
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
     "vite-tsconfig-paths": "^5.0.1",
-    "vitest": "^2.0.5"
+    "vitest": "^2.0.5",
+    "wait-for-localhost-cli": "^3.2.0"
   },
   "eslintConfig": {
     "extends": [
