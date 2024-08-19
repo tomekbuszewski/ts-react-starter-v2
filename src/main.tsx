@@ -6,12 +6,10 @@ import App from "./App.tsx";
 import "./style.css";
 
 async function enableMocks() {
-  console.log(import.meta);
+  console.log(import.meta.env);
   if (import.meta.env.VITE_MOCKS === "true") {
-    const { worker } = await import("../mocks/browser");
-
     console.log("Mocks enabled");
-
+    const { worker } = await import("../mocks/browser");
     return worker.start();
   }
 

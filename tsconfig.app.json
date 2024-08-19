@@ -22,12 +22,13 @@
 
     /* Paths */
     "paths": {
-      "@config/*": ["config/*"],
-      "@features": ["src/features/index.ts"],
-      "@pages": ["src/pages/index.ts"],
-      "@providers": ["src/providers/index.ts"],
-      "@ui/*": ["src/ui/*/index.ts"],
-      "@utils": ["src/utils/index.ts"]
+      "@config/*": ["./config/*"],
+      "@features": ["./src/features/index.ts"],
+      "@mocks": ["./mocks/node.ts"],
+      "@pages": ["./src/pages/index.ts"],
+      "@providers": ["./src/providers/index.ts"],
+      "@ui/*": ["./src/ui/*/index.ts"],
+      "@utils": ["./src/utils/index.ts"]
     },
 
     /* Types */

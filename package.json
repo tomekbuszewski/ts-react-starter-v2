@@ -7,6 +7,7 @@
     "dev": "vite",
     "dev:mocks": "VITE_MOCKS=\"true\" vite",
     "build": "tsc -b && vite build",
+    "build:mocks": "tsc -b && VITE_MOCKS=\"true\" vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --config-dir storybook",
