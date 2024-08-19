@@ -1,13 +1,12 @@
 import type { FC, PropsWithChildren } from "react";
 
+import { API_URL } from "@config/consts.ts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 interface Props extends PropsWithChildren {
   client?: QueryClient;
 }
-
-const API_URL = import.meta.env.VITE_API_URL as string;
 
 const queryClient = new QueryClient({
   defaultOptions: {

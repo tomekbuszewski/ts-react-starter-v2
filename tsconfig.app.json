@@ -22,6 +22,7 @@
 
     /* Paths */
     "paths": {
+      "@config/*": ["config/*"],
       "@features": ["src/features/index.ts"],
       "@pages": ["src/pages/index.ts"],
       "@providers": ["src/providers/index.ts"],
@@ -32,5 +33,5 @@
     /* Types */
     "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src", "config", "storybook"]
+  "include": ["src", "config", "storybook", "mocks"]
 }
