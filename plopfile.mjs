@@ -1,3 +1,8 @@
+const pascalExport =
+  'export { default as {{pascalCase name}} } from "./{{pascalCase name}}/{{pascalCase name}}";';
+const camelExport =
+  'export { default as {{camelCase name}} } from "./{{camelCase name}}/{{camelCase name}}";';
+
 function plop(/** @type {import('plop').NodePlopAPI} */ plop) {
   plop.setGenerator("ui", {
     description: "Create a new UI component",
@@ -34,8 +39,7 @@ function plop(/** @type {import('plop').NodePlopAPI} */ plop) {
       {
         type: "append",
         path: "./src/ui/{{type}}s/index.ts",
-        template:
-          'export { default as {{pascalCase name}} } from "./{{pascalCase name}}/{{pascalCase name}}";',
+        template: pascalExport,
       },
     ],
   });
@@ -64,8 +68,7 @@ function plop(/** @type {import('plop').NodePlopAPI} */ plop) {
       {
         type: "append",
         path: "./src/utils/index.ts",
-        template:
-          'export { default as {{camelCase name}} } from "./{{camelCase name}}/{{camelCase name}}";',
+        template: camelExport,
       },
     ],
   });
@@ -94,8 +97,7 @@ function plop(/** @type {import('plop').NodePlopAPI} */ plop) {
       {
         type: "append",
         path: "./src/hooks/index.ts",
-        template:
-          'export { default as {{camelCase name}} } from "./{{camelCase name}}/{{camelCase name}}";',
+        template: camelExport,
       },
     ],
   });
@@ -114,13 +116,36 @@ function plop(/** @type {import('plop').NodePlopAPI} */ plop) {
       {
         type: "add",
         path: "./src/pages/{{pascalCase name}}/{{pascalCase name}}.tsx",
-        template: `export default function {{pascalCase name}}() { return <div>Hello from {{pascalCase name}}</div>; }`,
+        template: `export default function {{pascalCase name}}() { return <div>Hello from {{pascalCase name}} page</div>; }`,
       },
       {
         type: "append",
         path: "./src/pages/index.ts",
-        template:
-          'export { default as {{pascalCase name}} } from "./{{pascalCase name}}/{{pascalCase name}}";',
+        template: pascalExport,
+      },
+    ],
+  });
+
+  plop.setGenerator("feature", {
+    description: "Create a new feature",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Feature name",
+      },
+    ],
+
+    actions: [
+      {
+        type: "add",
+        path: "./src/features/{{pascalCase name}}/{{pascalCase name}}.tsx",
+        template: `export default function {{pascalCase name}}() { return <div>Hello from {{pascalCase name}} feature</div>; }`,
+      },
+      {
+        type: "append",
+        path: "./src/features/index.ts",
+        template: pascalExport,
       },
     ],
   });

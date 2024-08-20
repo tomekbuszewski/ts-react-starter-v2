@@ -26,6 +26,7 @@
       "@features": ["./src/features/index.ts"],
       "@mocks": ["./mocks/node.ts"],
       "@pages": ["./src/pages/index.ts"],
+      "@pages/lazy": ["./src/pages/lazy.tsx"],
       "@providers": ["./src/providers/index.ts"],
       "@ui/*": ["./src/ui/*/index.ts"],
       "@utils": ["./src/utils/index.ts"]

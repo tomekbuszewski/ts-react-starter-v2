@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { activities } from "@features";
-import { ApiPage, Goodbye, Hello, Nested } from "@pages";
+import { ApiPage, Hello, Nested } from "@pages";
+import { Goodbye } from "@pages/lazy";
 import { ReactQueryProvider } from "@providers";
 
 const router = createBrowserRouter([
