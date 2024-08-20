@@ -1,27 +1,36 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { activities } from "@features";
-import { ApiPage, Hello, Nested } from "@pages";
+import { ApiPage, BrokenPage, Hello, Nested } from "@pages";
 import { Goodbye } from "@pages/lazy";
-import { ReactQueryProvider } from "@providers";
+import { ErrorBoundaryProvider, ReactQueryProvider } from "@providers";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Hello />,
-  },
-  {
-    path: "/goodbye",
-    element: <Goodbye />,
-  },
-  {
-    path: "/nested",
-    element: <Outlet />,
-    children: Nested,
-  },
-  {
-    path: "/with-fetch",
-    element: <ApiPage />,
-    children: activities,
+    element: <ErrorBoundaryProvider />,
+    children: [
+      {
+        path: "/",
+        element: <Hello />,
+      },
+      {
+        path: "/broken",
+        element: <BrokenPage />,
+      },
+      {
+        path: "/goodbye",
+        element: <Goodbye />,
+      },
+      {
+        path: "/nested",
+        element: <Outlet />,
+        children: Nested,
+      },
+      {
+        path: "/with-fetch",
+        element: <ApiPage />,
+        children: activities,
+      },
+    ],
   },
 ]);
 
