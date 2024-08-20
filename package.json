@@ -4,19 +4,42 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "~~ DEV COMMANDS ~~": "",
     "dev": "vite",
     "dev:mocks": "VITE_MOCKS=\"true\" vite",
+    "storybook": "storybook dev -p 6006 --config-dir storybook",
+
+    "~~ LINT COMMANDS ~~": "",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
+    "lint:format": "prettier --write 'src/**/*.{ts,tsx}'; eslint --fix 'src/**/*.{ts,tsx}'",
+
+    "~~ GENERATOR COMMANDS ~~": "",
+    "generate": "plop",
+    "generate:feature": "plop feature",
+    "generate:hook": "plop hook",
+    "generate:page": "plop page",
+    "generate:ui": "plop ui",
+    "generate:util": "plop util",
+
+    "~~ BUILD COMMANDS ~~": "",
     "build": "tsc -b && vite build",
     "build:mocks": "tsc -b && VITE_MOCKS=\"true\" vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006 --config-dir storybook",
     "build-storybook": "storybook build --config-dir storybook",
-    "plop": "plop",
-    "postplop": "prettier --write 'src/**/*.{ts,tsx}'; eslint --fix 'src/**/*.{ts,tsx}'",
+
+    "~~ TEST COMMANDS ~~": "",
     "test": "vitest run",
     "test:e2e": "wait-for-localhost 8080 && playwright test",
-    "test:e2e:mocks": "npm run build:mocks && run-p -r \"preview\" \"test:e2e\""
+    "test:e2e:mocks": "npm run build:mocks && run-p -r \"preview\" \"test:e2e\"",
+
+    "~~ POSTSCRIPTS ~~": "",
+    "postgenerate": "npm run lint:format",
+    "postgenerate:feature": "npm run lint:format",
+    "postgenerate:hook": "npm run lint:format",
+    "postgenerate:page": "npm run lint:format",
+    "postgenerate:ui": "npm run lint:format",
+    "postgenerate:util": "npm run lint:format"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.23",
