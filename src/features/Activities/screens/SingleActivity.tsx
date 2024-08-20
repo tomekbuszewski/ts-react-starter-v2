@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 
-import { useSingleActivity } from "./Activities.hooks.ts";
+import { useSingleActivity } from "../Activities.hooks.ts";
 
-export function SingleActivity() {
+function SingleActivity() {
   const { id } = useParams();
   const { isPending, data, isFetching, error } = useSingleActivity(id);
 
@@ -14,3 +14,5 @@ export function SingleActivity() {
 
   return <div>{data.title}</div>;
 }
+
+export default SingleActivity;

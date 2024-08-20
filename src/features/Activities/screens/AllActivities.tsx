@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import { useActivities } from "./Activities.hooks.ts";
+import { useActivities } from "../Activities.hooks.ts";
 
-export function AllActivities() {
+function AllActivities() {
   const { isPending, data, isFetching, error } = useActivities();
 
   if (isPending || isFetching) return <div>Loading...</div>;
@@ -21,3 +21,5 @@ export function AllActivities() {
     </ul>
   );
 }
+
+export default AllActivities;

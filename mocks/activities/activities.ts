@@ -27,9 +27,11 @@ const data = [
     completed: true,
   },
 ];
+
 const getAllActivities = http.get(`${API_URL}/api/v1/Activities`, () => {
   return HttpResponse.json(data);
 });
+
 const getSingleActivity = http.get(
   `${API_URL}/api/v1/Activities/:id`,
   ({ params }) => {
@@ -43,4 +45,5 @@ const getSingleActivity = http.get(
     return HttpResponse.json(activity);
   },
 );
+
 export const activities = [getAllActivities, getSingleActivity];
