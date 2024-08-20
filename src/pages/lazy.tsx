@@ -3,12 +3,14 @@ import type { JSX, LazyExoticComponent } from "react";
 import { lazy, Suspense } from "react";
 import { Loading } from "@ui/atoms";
 
+type ReactComponent = () => JSX.Element;
+
 const GoodbyePage = lazy(() => import("./Goodbye/Goodbye"));
 
 const lazyFactory = (
-  Component: LazyExoticComponent<() => JSX.Element>,
-  loading?: () => JSX.Element,
-) => {
+  Component: LazyExoticComponent<ReactComponent>,
+  loading?: ReactComponent,
+): ReactComponent => {
   const LoadingComponent = loading ?? Loading;
 
   // eslint-disable-next-line react/display-name
